@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparatrip - Sua próxima aventura começa aqui!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+
+    <!-- CABEÇALHO / NAVEGAÇÃO -->
+    <header class="navbar">
+        <a href="#" class="logo">
+            <i class="fa-solid fa-plane-departure logo-icon"></i>
+            comparatrip<span>.</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">Destinos</a></li>
+            <li><a href="#">Ofertas</a></li>
+            <li><a href="#">Sobre nós</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <button class="search-icon-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button class="btn-conta"><i class="fa-regular fa-user"></i> Conta</button>
+        </div>
+    </header>
+
+    <!-- BANNER PRINCIPAL COM PESQUISA -->
+    <section class="hero-container">
+        <div class="hero-banner">
+            <h1 class="hero-title">Sua Próxima<br><span>aventura</span> começa aqui!</h1>
+        </div>
+
+        <!-- FORMULÁRIO DE PESQUISA FLUTUANTE -->
+        <div class="search-box-wrapper">
+            <form class="search-form" onsubmit="event.preventDefault();">
+                
+                <!-- Origem -->
+                <div class="input-group">
+                    <i class="fa-solid fa-plane-departure"></i>
+                    <div class="input-content">
+                        <label>Origem</label>
+                        <input type="text" placeholder="De onde você sai?">
+                    </div>
+                </div>
+
+                <!-- Destino -->
+                <div class="input-group">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div class="input-content">
+                        <label>Destino</label>
+                        <input type="text" placeholder="Para onde quer ir?">
+                    </div>
+                </div>
+
+                <!-- Data -->
+                <div class="input-group">
+                    <i class="fa-regular fa-calendar-days"></i>
+                    <div class="input-content">
+                        <label>Data</label>
+                        <input type="text" placeholder="Selecione as datas">
+                    </div>
+                </div>
+
+                <!-- Pessoas -->
+                <div class="input-group">
+                    <i class="fa-regular fa-user"></i>
+                    <div class="input-content">
+                        <label>Pessoas</label>
+                        <input type="text" placeholder="Quantas pessoas?">
+                    </div>
+                </div>
+
+                <!-- Botão Buscar -->
+                <button type="submit" class="btn-buscar">
+                    <i class="fa-solid fa-magnifying-glass"></i> Buscar
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DE VIAGENS EM DESTAQUE -->
+    <main class="section-destaques">
+        <h2 class="section-title">Viagens em destaque:</h2>
+
+        <div class="cards-grid">
+            
+            <!-- Card 1: França -->
+            <div class="card-destino">
+                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80" alt="França">
+                <div class="card-gradient"></div>
+                <div class="card-location">
+                    <i class="fa-solid fa-location-dot"></i> França
+                </div>
+                <div class="card-btn">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </div>
+
+            <!-- Card 2: Rio de Janeiro -->
+            <div class="card-destino">
+                <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=800&q=80" alt="Rio de Janeiro">
+                <div class="card-gradient"></div>
+                <div class="card-location">
+                    <i class="fa-solid fa-location-dot"></i> Rio de janeiro
+                </div>
+                <div class="card-btn">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </div>
+
+            <!-- Card 3: Ilhas Salomão -->
+            <div class="card-destino">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80" alt="Ilhas Salomão">
+                <div class="card-gradient"></div>
+                <div class="card-location">
+                    <i class="fa-solid fa-location-dot"></i> Ilhas Salomão
+                </div>
+                <div class="card-btn">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+     <!-- Seção de Pilares / Diferenciais -->
+     <div class="pilares-section">
+        <h2>Por que escolher a Comparatrip?</h2>
+        
+        <div class="pilares-grid">
+            
+            <div class="pilar-card">
+                <div class="pilar-icon">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <h3>Busca Rápida</h3>
+                <p>Encontre voos, datas e destinos ideais em segundos com o nosso sistema integrado e inteligente.</p>
+            </div>
+
+            <div class="pilar-card">
+                <div class="pilar-icon">
+                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                </div>
+                <h3>Melhores Preços</h3>
+                <p>Comparamos dezenas de opções para garantir que você viaje mais gastando menos.</p>
+            </div>
+
+            <div class="pilar-card">
+                <div class="pilar-icon">
+                    <i class="fa-solid fa-earth-americas"></i>
+                </div>
+                <h3>Destinos Globais</h3>
+                <p>Do Brasil aos cantos mais remotos do planeta, temos parcerias e sugestões para todos os gostos.</p>
+            </div>
+
+        </div>
+    </div>
+
+</main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            
+            <!-- Coluna 1: Logo e Descrição -->
+            <div class="footer-col brand-col">
+                <div class="logo">
+                    <i class="fa-solid fa-plane"></i>
+                    <span>comparatrip</span>
+                </div>
+                <p class="brand-desc">
+                    Sua plataforma completa para comparar voos, encontrar voos promocionais e planejar a viagem perfeita com rapidez e economia.
+                </p>
+                <div class="social-icons">
+                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+
+            <!-- Coluna 2: Navegação -->
+            <div class="footer-col">
+                <h3>Navegação</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Destinos em Destaque</a></li>
+                    <li><a href="#">Ofertas da Semana</a></li>
+                    <li><a href="#">Sobre nós</a></li>
+                </ul>
+            </div>
+
+            <!-- Coluna 3: Destinos Populares -->
+            <div class="footer-col">
+                <h3>Destinos Populares</h3>
+                <ul>
+                    <li><a href="#">França</a></li>
+                    <li><a href="#">Rio de Janeiro</a></li>
+                    <li><a href="#">Ilhas Salomão</a></li>
+                    <li><a href="#">Tóquio</a></li>
+                </ul>
+            </div>
+
+            <!-- Coluna 4: Receba Ofertas -->
+            <div class="footer-col newsletter-col">
+                <h3>Receba Ofertas</h3>
+                <p>Cadastre-se e receba alertas de voos baratos em primeira mão.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Seu melhor e-mail" required>
+                    <button type="submit">Assinar</button>
+                </form>
+            </div>
+
+        </div>
+
+        <!-- Rodapé Inferior -->
+        <div class="footer-bottom">
+            <p>&copy; 2026 ComparaTrip. Todos os direitos reservados.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Termos de Uso</a>
+                <a href="#">Privacidade</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
