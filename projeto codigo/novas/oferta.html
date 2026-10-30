@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComparaTrip - Ofertas de Passagens</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="oferta.css">
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="navbar">
+        <a href="#" class="logo">
+            <i class="fa-solid fa-compass logo-icon"></i>
+            Compara<span>Trip</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Destino</a></li>
+            <li><a href="#">Sobre Nós</a></li>
+            <li><a href="#" class="active">Oferta</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+        <div class="nav-right">
+            <button class="search-icon-btn"><i class="fa-solid fa-search"></i></button>
+            <a href="#" class="btn-conta"><i class="fa-solid fa-user"></i> Minha Conta</a>
+        </div>
+    </header>
+
+    <!-- BANNER PRINCIPAL -->
+    <section class="hero-banner">
+        <h1 class="hero-title">Mais de <span>20 Ofertas Imperdíveis</span> de Avião e Ônibus</h1>
+    </section>
+
+    <!-- FILTROS DE NAVEGAÇÃO -->
+    <div class="filter-container">
+        <div class="filter-buttons">
+            <button class="btn-filter active" onclick="filtrar('todos')">Todas (22)</button>
+            <button class="btn-filter" onclick="filtrar('aviao')"><i class="fa-solid fa-plane"></i> Avião (11)</button>
+            <button class="btn-filter" onclick="filtrar('onibus')"><i class="fa-solid fa-bus"></i> Ônibus (11)</button>
+        </div>
+    </div>
+
+    <!-- SEÇÃO DE OFERTAS / CARDS -->
+    <section class="section-destaques">
+        <div class="cards-grid" id="grid-ofertas">
+            <!-- Os 22 cards são renderizados dinamicamente pelo JavaScript abaixo -->
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <i class="fa-solid fa-compass"></i> ComparaTrip
+                </div>
+                <p class="brand-desc">Sua plataforma inteligente para comparar preços de passagens aéreas e rodoviárias com facilidade e economia.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social-btn"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Empresa</h3>
+                <ul>
+                    <li><a href="#">Sobre Nós</a></li>
+                    <li><a href="#">Carreiras</a></li>
+                    <li><a href="#">Imprensa</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Ajuda</h3>
+                <ul>
+                    <li><a href="#">Central de Ajuda</a></li>
+                    <li><a href="#">Política de Cancelamento</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col newsletter-col">
+                <h3>Receba Ofertas</h3>
+                <p>Cadastre seu e-mail para receber promoções relâmpago.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault();">
+                    <input type="email" placeholder="Seu melhor e-mail">
+                    <button type="submit">Assinar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 ComparaTrip. Todos os direitos reservados.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacidade</a>
+                <a href="#">Termos</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LÓGICA DE RENDERAÇÃO E FILTROS -->
+    <script>
+        const ofertas = [
+            { tipo: 'aviao', rota: 'São Paulo ➔ Rio de Janeiro', preco: 189, duracao: '1h 00m', img: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=800&q=80', tag: 'Voo Direto' },
+            { tipo: 'onibus', rota: 'Curitiba ➔ Florianópolis', preco: 89, duracao: '4h 30m', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80', tag: 'Leito' },
+            { tipo: 'aviao', rota: 'Brasília ➔ Salvador', preco: 340, duracao: '1h 55m', img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80', tag: 'Promoção' },
+            { tipo: 'onibus', rota: 'São Paulo ➔ Belo Horizonte', preco: 115, duracao: '7h 30m', img: 'https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&w=800&q=80', tag: 'Semi-Leito' },
+            { tipo: 'aviao', rota: 'Rio de Janeiro ➔ Recife', preco: 420, duracao: '2h 40m', img: 'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&w=800&q=80', tag: 'Mala Grátis' },
+            { tipo: 'onibus', rota: 'São Paulo ➔ Rio de Janeiro', preco: 98, duracao: '6h 00m', img: 'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=800&q=80', tag: 'Executivo' },
+            { tipo: 'aviao', rota: 'Belo Horizonte ➔ Fortaleza', preco: 490, duracao: '2h 50m', img: 'https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=800&q=80', tag: 'Voo Direto' },
+            { tipo: 'onibus', rota: 'Rio de Janeiro ➔ Vitória', preco: 130, duracao: '8h 00m', img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80', tag: 'Cama 180°' },
+            { tipo: 'aviao', rota: 'São Paulo ➔ Foz do Iguaçu', preco: 310, duracao: '1h 45m', img: 'https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=800&q=80', tag: 'Oferta Flash' },
+            { tipo: 'onibus', rota: 'Porto Alegre ➔ Florianópolis', preco: 75, duracao: '6h 15m', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80', tag: 'Econômico' },
+            { tipo: 'aviao', rota: 'São Paulo ➔ Florianópolis', preco: 210, duracao: '1h 10m', img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80', tag: 'Super Desconto' },
+            { tipo: 'onibus', rota: 'São Paulo ➔ Curitiba', preco: 85, duracao: '6h 30m', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80', tag: 'Wi-Fi Grátis' },
+            { tipo: 'aviao', rota: 'Rio de Janeiro ➔ Salvador', preco: 360, duracao: '2h 05m', img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80', tag: 'Voo Noturno' },
+            { tipo: 'onibus', rota: 'Brasília ➔ Goiânia', preco: 45, duracao: '3h 00m', img: 'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=800&q=80', tag: 'Convencional' },
+            { tipo: 'aviao', rota: 'Campinas ➔ Natal', preco: 520, duracao: '3h 15m', img: 'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&w=800&q=80', tag: 'Direto' },
+            { tipo: 'onibus', rota: 'São Paulo ➔ Gramado', preco: 190, duracao: '14h 00m', img: 'https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&w=800&q=80', tag: 'Leito Total' },
+            { tipo: 'aviao', rota: 'Curitiba ➔ Porto Alegre', preco: 230, duracao: '1h 15m', img: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=800&q=80', tag: 'Promoção' },
+            { tipo: 'onibus', rota: 'Belo Horizonte ➔ Rio de Janeiro', preco: 110, duracao: '7h 00m', img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80', tag: 'Semi-Leito' },
+            { tipo: 'aviao', rota: 'São Paulo ➔ Porto Seguro', preco: 410, duracao: '1h 50m', img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80', tag: 'Últimas Vagas' },
+            { tipo: 'onibus', rota: 'Salvador ➔ Recife', preco: 160, duracao: '12h 00m', img: 'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&w=800&q=80', tag: 'Leito' },
+            { tipo: 'aviao', rota: 'Brasília ➔ Rio de Janeiro', preco: 270, duracao: '1h 40m', img: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=800&q=80', tag: 'Tarifa Flex' },
+            { tipo: 'onibus', rota: 'Fortaleza ➔ Natal', preco: 95, duracao: '8h 30m', img: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80', tag: 'Executivo' }
+        ];
+
+        function renderizarCards(lista) {
+            const grid = document.getElementById('grid-ofertas');
+            grid.innerHTML = lista.map(o => `
+                <div class="card-destino">
+                    <img src="${o.img}" class="card-bg-img" alt="${o.rota}">
+                    <div class="card-gradient"></div>
+                    <div class="card-top">
+                        <span class="badge-transporte ${o.tipo === 'aviao' ? 'badge-aviao' : 'badge-onibus'}">
+                            <i class="fa-solid ${o.tipo === 'aviao' ? 'fa-plane' : 'fa-bus'}"></i> 
+                            ${o.tipo === 'aviao' ? 'Avião' : 'Ônibus'}
+                        </span>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-location">${o.rota}</div>
+                        <div class="card-details">
+                            <span><i class="fa-solid fa-clock"></i> ${o.duracao}</span>
+                            <span><i class="fa-solid fa-tag"></i> ${o.tag}</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-price-tag">
+                                <span>A partir de</span>
+                                <strong>R$ ${o.preco}</strong>
+                            </div>
+                            <button class="btn-reservar" onclick="alert('Reserva iniciada para: ${o.rota}')">Garantir</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filtrar(tipo) {
+            document.querySelectorAll('.btn-filter').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            if (tipo === 'todos') {
+                renderizarCards(ofertas);
+            } else {
+                renderizarCards(ofertas.filter(o => o.tipo === tipo));
+            }
+        }
+
+        renderizarCards(ofertas);
+    </script>
+</body>
+</html>

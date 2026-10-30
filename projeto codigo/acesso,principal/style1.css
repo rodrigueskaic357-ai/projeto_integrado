@@ -545,7 +545,7 @@ body {
     background-color: #ea580c;
 }
 
-/* Rodapé Inferior (Copyright) */
+/* Rodapé Inferior */
 .footer-bottom {
     max-width: 1200px;
     margin: 0 auto;
@@ -562,7 +562,7 @@ body {
     gap: 24px;
 }
 
-/* Responsividade para telas menores (Tablets e Celulares) */
+/* Responsividade para telas menores */
 @media (max-width: 900px) {
     .footer-container {
         grid-template-columns: 1fr 1fr;

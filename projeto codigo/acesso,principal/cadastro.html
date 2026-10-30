@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComparaTrip - Criar Conta</title>
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+<body>
+   
+        
+    <main >
+        <div>
+            <h1 id="logo">Compara<span>Trip</span></h1>
+            <p id="subtitle">Crie sua conta para comparar as melhores viagens</p>
+        </div>
+
+        <form id="registerForm">
+            <div>
+                <label for="name">Nome completo</label>
+                <input type="text" id="name" placeholder="Seu nome completo">
+            </div>
+
+            <div>
+                <label for="email">E-mail</label>
+                <input type="email" id="email" placeholder="seu@email.com">
+            </div>
+
+            <div>
+                <label for="password">Senha</label>
+                <input type="password" id="password" placeholder="Mínimo 6 caracteres">
+            </div>
+
+            <button type="submit">Criar Conta</button>
+        </form>
+
+        <p id="successMessage" style="display: none;">✓ Conta criada com sucesso!</p>
+
+        <div>
+            <p>Já tem uma conta? <a href="#">Fazer login</a></p>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
